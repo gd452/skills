@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  LaunchAgent template — Claude Code Telegram channel auto-start.
+
+  변수 치환:
+    {{LABEL}}       → com.<user>.claude-telegram-<name>
+    {{SCRIPT_PATH}} → ~/.claude/skills/setup-claude-telegram-bot/scripts/start-telegram-channel.sh
+                     (스킬 폴더 안 절대 경로 — 자체 패키지)
+    {{BOT_NAME}}    → 봇 이름 (multi-bot ready by default, 비워도 default="claude")
+    {{HOME}}        → 사용자 홈 디렉토리
+
+  Install:
+    cp ~/Library/LaunchAgents/{{LABEL}}.plist ~/Library/LaunchAgents/
+    launchctl load -w ~/Library/LaunchAgents/{{LABEL}}.plist
+    launchctl start {{LABEL}}
+
+  Uninstall:
+    launchctl unload -w ~/Library/LaunchAgents/{{LABEL}}.plist
+    rm ~/Library/LaunchAgents/{{LABEL}}.plist
+
+  Logs:
+    tail -f /tmp/{{LABEL}}.out.log /tmp/{{LABEL}}.err.log
+
+  Note:
+    The wrapper script is idempotent — if the tmux session already exists,
+    it exits cleanly. So RunAtLoad will not duplicate sessions.
+    KeepAlive is intentionally false: the script exits after spawning tmux
+    in detached mode, so launchd should not try to relaunch it.
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>{{LABEL}}</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>{{SCRIPT_PATH}}</string>
+    <string>{{BOT_NAME}}</string>
+  </array>
+
+  <key>RunAtLoad</key>
+  <true/>
+
+  <key>KeepAlive</key>
+  <false/>
+
+  <key>StandardOutPath</key>
+  <string>/tmp/{{LABEL}}.out.log</string>
+
+  <key>StandardErrorPath</key>
+  <string>/tmp/{{LABEL}}.err.log</string>
+
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+    <key>HOME</key>
+    <string>{{HOME}}</string>
+  </dict>
+</dict>
+</plist>
