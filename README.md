@@ -50,7 +50,7 @@ gd-deploy          push + CI 검증 + 배포 결과 보고
 |---|---|---|
 | [gd-write-spec](./gd-write-spec) | "무엇을" — 상세 명세 | `SPEC.md` (XML 구조) |
 | [gd-start-project](./gd-start-project) | "어디서" — 폴더/파일 골격 | `TODO.md` + `CLAUDE.md` + `MEMORY.md` + `README.md` |
-| [harness](./harness) | "어떻게" — 에이전트 팀 + 도메인 스킬 | `.claude/agents/` + `.claude/skills/` |
+| [harness](./harness) ([revfactory](https://github.com/revfactory/harness) 원본) | "어떻게" — 에이전트 팀 + 도메인 스킬 | `.claude/agents/` + `.claude/skills/` |
 | [gd-review](./gd-review) | 배포 전 검증 | 점검 보고서 |
 | [gd-deploy](./gd-deploy) | 배포 실행 | push + CI + 결과 |
 
@@ -78,10 +78,10 @@ gd-multi-ai-review  Gemini + Codex 를 병렬 호출 → 합의/이견/추가 �
 | 스킬 | 용도 |
 |---|---|
 | [gd-multi-ai-review](./gd-multi-ai-review) | 외부 모델 교차검증의 메인 워크플로우 |
-| [codex-cli ↗](https://github.com/revfactory/skills/tree/main/codex-cli) | Codex CLI 호출 패턴 카탈로그 (다른 스킬도 참조) — 외부 (revfactory/skills), 이 미러엔 미포함 |
-| [codex-image ↗](https://github.com/revfactory/skills/tree/main/codex-image) | Codex 로 병렬 이미지 생성 (단순 이미지 외 → 별도 스킬) — 외부 (revfactory/skills), 이 미러엔 미포함 |
+| [codex-cli ↗](https://github.com/revfactory/skills/tree/main/codex-cli) | Codex CLI 호출 패턴 카탈로그 (다른 스킬도 참조) — revfactory/skills 원본 |
+| [codex-image ↗](https://github.com/revfactory/skills/tree/main/codex-image) | Codex 로 병렬 이미지 생성 (단순 이미지 외 → 별도 스킬) — revfactory/skills 원본 |
 
-> ℹ️ `codex-cli` · `codex-image` 의 원본은 동료 로빈의 [revfactory/skills](https://github.com/revfactory/skills) 입니다. 원본 출처를 존중해 이 미러엔 재배포하지 않고 외부 링크로만 연결합니다. `gd-multi-ai-review` 가 이 둘을 내부적으로 호출합니다.
+> ℹ️ `codex-cli` · `codex-image` 의 원본은 동료 로빈의 [revfactory/skills](https://github.com/revfactory/skills) 입니다. `gd-multi-ai-review` 가 이 둘을 내부적으로 호출합니다.
 
 ---
 
