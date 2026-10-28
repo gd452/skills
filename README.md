@@ -1,7 +1,7 @@
 # gd's Claude Code Skills
 
-** 이 스킬은 더 이상 업데이트 하지 않습니다 ** 
-** b3os.b3rys.com 에서 b3os AI 팀원들과 작업합니다. **
+**이 스킬은 더 이상 업데이트 하지 않습니다** 
+**b3os.b3rys.com 에서 b3os AI 팀원들과 작업합니다.**
 
 [Claude Code](https://claude.com/claude-code) 글로벌 스킬 모음. 개별 스킬을 던지지 않고 **함께 쓰이는 워크플로우** 단위로 묶었습니다.
 
